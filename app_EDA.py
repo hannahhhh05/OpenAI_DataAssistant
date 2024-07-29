@@ -9,7 +9,7 @@ from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe
 from dotenv import load_dotenv, find_dotenv
 
 #OpenAIKey
-os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
+os.environ['OPENAI_API_KEY'] = st.secrets["OPENAI_API_KEY"]["key"]
 load_dotenv(find_dotenv())
 #Title
 st.title('AI Assistant for Data Science 🤖')
