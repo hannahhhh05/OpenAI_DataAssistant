@@ -5,11 +5,11 @@ import streamlit as st
 import pandas as pd
 
 from langchain.llms import OpenAI
-from langchain_experimental.agents import create_pandas_dataframe_agent
+from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
 from dotenv import load_dotenv, find_dotenv
 
 #OpenAIKey
-os.environ['OPENAI_API_KEY'] = st.secrets["api_keys"]["openai"]
+os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 load_dotenv(find_dotenv())
 #Title
 st.title('AI Assistant for Data Science 🤖')
@@ -55,7 +55,7 @@ if st.session_state.clicked[1]:
             return steps_eda
 
         #Pandas agent
-        pandas_agent = create_pandas_dataframe_agent(llm, df, verbose = True)
+        pandas_agent = create_pandas_dataframe_agent(llm, df, verbose = True, allow_dangerous_code=True, handle_parsing_errors=True)
 
         #Functions main
         @st.cache_data
