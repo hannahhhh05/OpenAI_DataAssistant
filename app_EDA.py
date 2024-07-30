@@ -29,8 +29,6 @@ with st.sidebar:
 
     st.divider()
 
-    st.caption("<p style ='text-align:center'> made with ❤️ by Ana</p>",unsafe_allow_html=True )
-
 #Initialise the key in session state
 if 'clicked' not in st.session_state:
     st.session_state.clicked ={1:False}
